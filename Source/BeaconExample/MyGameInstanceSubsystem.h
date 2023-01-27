@@ -26,7 +26,7 @@ public:
 		bool StartHost();
 
 	UFUNCTION(BlueprintCallable)
-		void ConnectClient(FString IP);
+		bool ConnectClient(FString IP);
 
 private:
 	ASampleOnlineBeaconHostObject* HostObject;

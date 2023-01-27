@@ -37,13 +37,13 @@ bool UMyGameInstanceSubsystem::StartHost()
 	return false;
 }
 
-void UMyGameInstanceSubsystem::ConnectClient(FString IP)
+bool UMyGameInstanceSubsystem::ConnectClient(FString IP)
 {
 	UE_LOG(LogTemp,Warning,TEXT("Client Connect called"));
 	Client = GetWorld()->SpawnActor<ASampleOnlineBeaconClient>(ASampleOnlineBeaconClient::StaticClass());
 	if(Client)
 	{
-		Client->ConnectToServer(IP);
+		return Client->ConnectToServer(IP);
 	}
-
+	return false;
 }

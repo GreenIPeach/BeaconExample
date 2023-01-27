@@ -18,7 +18,12 @@ public:
 
 	bool ConnectToServer(const FString& IP);
 
+
+
 protected:
 	virtual void OnFailure() override;
-	virtual void OnConnected() override;	
+	virtual void OnConnected() override;
+
+	UFUNCTION(Server, Reliable)
+	void Server_RequestAccess(const FString& Name);
 };
